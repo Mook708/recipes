@@ -43,14 +43,14 @@ function showAddPage() {
             <h1>新增私房菜</h1>
             <div class="edit-form">
                 <label>菜名</label>
-                <input type="text" id="new-name" placeholder="例如：阿嬤的控肉">
+                <input type="text" id="new-name" placeholder=" ">
                 <label>類別</label>
-                <input type="text" id="new-category" placeholder="例如：肉類料理">
-                <label>圖片網址 (可暫留預設)</label>
+                <input type="text" id="new-category" placeholder="例如：肉類">
+                <label>圖片網址 (請先空著)</label>
                 <input type="text" id="new-image" value="images/default.jpg">
-                <label>食材 (請用逗號隔開)</label>
+                <label>食材 (請用逗號","隔開)</label>
                 <textarea id="new-ingredients" rows="3"></textarea>
-                <label>作法 (請用逗號隔開)</label>
+                <label>作法 (請用逗號","隔開)</label>
                 <textarea id="new-steps" rows="5"></textarea>
                 <button class="save-button" onclick="saveNewRecipe()">確認新增</button>
             </div>
