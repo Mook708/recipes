@@ -129,3 +129,55 @@ footer {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+
+/* --- 新增按鈕樣式 --- */
+.add-button {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+    border-radius: 50px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+
+/* --- 表單樣式 --- */
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+}
+
+.edit-form label {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 10px;
+}
+
+.edit-form input, .edit-form textarea {
+    padding: 12px;
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    background-color: white;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box; /* 確保寬度包含內邊距 */
+}
+
+.save-button {
+    margin-top: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
