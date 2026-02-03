@@ -1,0 +1,131 @@
+/* --- 基本設定與字體 --- */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #8B4513; /* 鞍褐色 (主標題) */
+    --secondary-color: #F5DEB3; /* 小麥色 (背景) */
+    --text-color: #5D4037; /* 深棕色 (內文) */
+    --card-bg-color: #FFF8E1; /* 象牙白 (卡片背景) */
+    --accent-color: #D2B48C; /* 褐色 (點綴) */
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* --- 響應式容器 --- */
+main {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* --- 標題與頁尾 --- */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: var(--text-color);
+}
+
+/* --- 食譜類別與菜名卡片 --- */
+.category-grid, .recipe-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 手機上預設單欄 */
+    gap: 20px;
+}
+
+.category-card, .recipe-card {
+    background-color: var(--card-bg-color);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.category-card:hover, .recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+}
+
+/* --- 食譜內容頁面 --- */
+.recipe-content {
+    background-color: var(--card-bg-color);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.recipe-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.recipe-content h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+}
+
+.recipe-content ul, .recipe-content ol {
+    padding-left: 20px;
+}
+
+.recipe-content li {
+    margin-bottom: 10px;
+}
+
+/* --- 返回按鈕 --- */
+.back-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.back-button:hover {
+    background-color: #c1a37c;
+}
+
+/* --- 響應式設計：桌面版 --- */
+@media (min-width: 600px) {
+    .category-grid, .recipe-grid {
+        /* 平板以上變為兩欄 */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .category-grid, .recipe-grid {
+        /* 桌面版變為三欄 */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
