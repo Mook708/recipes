@@ -46,11 +46,11 @@ function showAddPage() {
                 <input type="text" id="new-name" placeholder=" ">
                 <label>類別</label>
                 <input type="text" id="new-category" placeholder="例如：肉類">
-                <label>圖片網址 (請先空著)</label>
+                <label>圖片路徑 (請先空著)</label>
                 <input type="text" id="new-image" value="images/default.jpg">
-                <label>食材 (請用逗號","隔開)</label>
+                <label>食材 (請用換行隔開)</label>
                 <textarea id="new-ingredients" rows="3"></textarea>
-                <label>作法 (請用逗號","隔開)</label>
+                <label>作法 (步驟用換行隔開)</label>
                 <textarea id="new-steps" rows="5"></textarea>
                 <button class="save-button" onclick="saveNewRecipe()">確認新增</button>
             </div>
@@ -70,12 +70,12 @@ function showEditPage(recipeId) {
                 <input type="text" id="edit-name" value="${recipe.name}">
                 <label>類別</label>
                 <input type="text" id="edit-category" value="${recipe.category}">
-                <label>圖片路徑</label>
+                <label>圖片路徑 (請先空著)</label>
                 <input type="text" id="edit-image" value="${recipe.image}">
-                <label>食材 (請用逗號隔開)</label>
-                <textarea id="edit-ingredients" rows="5">${recipe.ingredients.join(',')}</textarea>
-                <label>作法 (請用逗號隔開)</label>
-                <textarea id="edit-steps" rows="8">${recipe.steps.join(',')}</textarea>
+                <label>食材 (請用換行隔開)</label>
+                <textarea id="edit-ingredients" rows="5">${recipe.ingredients.join('\n')}</textarea>
+                <label>作法 (步驟用換行隔開)</label>
+                <textarea id="edit-steps" rows="8">${recipe.steps.join('\n')}</textarea>
                 <button class="save-button" onclick="updateRecipe('${recipe.id}')">儲存修改</button>
             </div>
         </div>
@@ -88,8 +88,8 @@ async function saveNewRecipe() {
         name: document.getElementById('new-name').value,
         category: document.getElementById('new-category').value,
         image: document.getElementById('new-image').value,
-        ingredients: document.getElementById('new-ingredients').value.split(','),
-        steps: document.getElementById('new-steps').value.split(',')
+        ingredients: document.getElementById('new-ingredients').value.split('\n'),
+        steps: document.getElementById('new-steps').value.split('\n')
     };
     if(data.name && data.category) {
         await db.collection("recipes").add(data);
@@ -103,8 +103,8 @@ async function updateRecipe(id) {
         name: document.getElementById('edit-name').value,
         category: document.getElementById('edit-category').value,
         image: document.getElementById('edit-image').value,
-        ingredients: document.getElementById('edit-ingredients').value.split(','),
-        steps: document.getElementById('edit-steps').value.split(',')
+        ingredients: document.getElementById('edit-ingredients').value.split('\n'),
+        steps: document.getElementById('edit-steps').value.split('\n')
     };
     await db.collection("recipes").doc(id).update(updatedData);
     alert("更新成功！");
